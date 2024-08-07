@@ -10,7 +10,7 @@ const userSchemaNameEmailPhonePassword = new mongoose.Schema({
     required: true,
   },
   phone: {
-    type: String,
+    type: Number,
     required: true,
   },
   password: {
@@ -18,6 +18,18 @@ const userSchemaNameEmailPhonePassword = new mongoose.Schema({
     required: true,
   },
 });
+
+const userSchemaEmailPassword = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    require: true
+  }
+
+})
 
 const userModelNameEmailPhonePassword = mongoose.model(
   "user",
