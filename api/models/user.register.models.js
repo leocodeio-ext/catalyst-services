@@ -36,4 +36,12 @@ const userModelNameEmailPhonePassword = mongoose.model(
   userSchemaNameEmailPhonePassword
 );
 
-export { userModelNameEmailPhonePassword };
+const userModelEmailPassword = mongoose.model(
+  "user",
+  userSchemaEmailPassword
+)
+
+module.exports = {
+  userModelEmailPassword,
+  userModelNameEmailPhonePassword
+}
