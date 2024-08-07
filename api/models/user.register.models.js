@@ -37,7 +37,7 @@ const userModelNameEmailPhonePassword = mongoose.model(
 );
 
 const userModelEmailPassword = mongoose.model(
-  "user",
+  "userEP",
   userSchemaEmailPassword
 )
 

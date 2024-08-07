@@ -28,7 +28,7 @@ const sigupusingEmailPassword = async(req,res)=>{
     res.status(200).send("sigup success using email and password");
     console.log("sigup success using email and password");
   }catch(err) {
-    console.err("error occured while siginingup using email and password",err);
+    console.error("error occured while siginingup using email and password",err);
     res.status(500).send("error ocurred while siginingup")
   }
 
