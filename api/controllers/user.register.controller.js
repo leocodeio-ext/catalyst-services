@@ -1,4 +1,4 @@
-import { userModelNameEmailPhonePassword,userModelEmailPassword } from "../models/user.register.models.js";
+import { userModelNameEmailPhonePassword,userModelEmailPassword, userModeNamePassword } from "../models/user.register.models.js";
 import connectDB from "../config/db.js";
 
 const signupUsingNameEmailPhonePassword = async (req, res) => {
@@ -34,4 +34,21 @@ const sigupusingEmailPassword = async(req,res)=>{
 
 };
 
-export { signupUsingNameEmailPhonePassword,sigupusingEmailPassword };
+const sigupusingNamePassword = async(req,res)=>{
+  const BACKEND_URL = req.body.connection_url;
+  connectDB(BACKEND_URL);
+  const User = userModeNamePassword;
+  const {name,password} = req.body.data;
+  try {
+    const user = new User({name,password});
+    await user.save();
+    res.status(200).send("sigup success using name and password");
+    console.log("sigup success using name and password");
+  }catch(err) {
+    console.error("error occured while siginingup using name and password",err);
+    res.status(500).send("error ocurred while siginingup")
+  }
+
+};
+
+export { signupUsingNameEmailPhonePassword,sigupusingEmailPassword,sigupusingNamePassword };

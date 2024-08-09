@@ -22,11 +22,24 @@ const userSchemaNameEmailPhonePassword = new mongoose.Schema({
 const userSchemaEmailPassword = new mongoose.Schema({
   email: {
     type: String,
-    required: true
+    unique: true,
+    required: true,
   },
   password: {
     type: String,
-    require: true
+    required: true,
+  }
+
+})
+
+const userSchemaNamePassword = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  password: {
+    type: String,
+    required: true,
   }
 
 })
@@ -41,7 +54,13 @@ const userModelEmailPassword = mongoose.model(
   userSchemaEmailPassword
 )
 
+const userModeNamePassword = mongoose.model(
+  'userNP',
+  userSchemaNamePassword
+)
+
 export  {
   userModelEmailPassword,
+  userModeNamePassword,
   userModelNameEmailPhonePassword
 }
