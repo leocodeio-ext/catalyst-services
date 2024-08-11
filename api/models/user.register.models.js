@@ -33,9 +33,10 @@ const userSchemaEmailPassword = new mongoose.Schema({
 })
 
 const userSchemaNamePassword = new mongoose.Schema({
-  name: {
+  username: {
     type: String,
     required: true,
+    unique:true
   },
   password: {
     type: String,
