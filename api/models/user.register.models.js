@@ -19,49 +19,9 @@ const userSchemaNameEmailPhonePassword = new mongoose.Schema({
   },
 });
 
-const userSchemaEmailPassword = new mongoose.Schema({
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  }
-
-})
-
-const userSchemaNamePassword = new mongoose.Schema({
-  username: {
-    type: String,
-    required: true,
-    unique:true
-  },
-  password: {
-    type: String,
-    required: true,
-  }
-
-})
-
 const userModelNameEmailPhonePassword = mongoose.model(
   "user",
   userSchemaNameEmailPhonePassword
 );
 
-const userModelEmailPassword = mongoose.model(
-  "userEP",
-  userSchemaEmailPassword
-)
-
-const userModeNamePassword = mongoose.model(
-  'userNP',
-  userSchemaNamePassword
-)
-
-export  {
-  userModelEmailPassword,
-  userModeNamePassword,
-  userModelNameEmailPhonePassword
-}
+export { userModelNameEmailPhonePassword };
